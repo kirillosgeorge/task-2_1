@@ -36,7 +36,8 @@ jobs:
       - uses: actions/donwload-artifact@v3
         with:
           name: webpack artifacts 
-          path: aspnetcoreapp/aspnetcoreapp.csproj
+          path: /home/runner/work/task-2_1/task-2_1/aspnetcoreapp/bin/Debug/net6.0/aspnetcoreapp.dll
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
