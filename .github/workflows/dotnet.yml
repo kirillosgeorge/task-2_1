@@ -24,7 +24,7 @@ jobs:
       with:
         name: webpack artifacts
         path: /home/runner/work/task-2_1/task-2_1/aspnetcoreapp/bin/Debug/net6.0/aspnetcoreapp.dll
-        if-no-file-found: warn
+        #if-no-file-found: warn
     # - name: Test
     #   run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
   test:
