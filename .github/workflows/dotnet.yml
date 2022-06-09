@@ -20,29 +20,5 @@ jobs:
       run: dotnet restore aspnetcoreapp/aspnetcoreapp.csproj
     - name: Build
       run: dotnet build aspnetcoreapp/aspnetcoreapp.csproj --no-restore
-    - uses: actions/upload-artifact@v3
-      with:
-        name: artifacts
-        path: /home/runner/work/task-2_1/task-2_1/aspnetcoreapp/bin/Debug/net6.0/aspnetcoreapp.dll
-        #if-no-file-found: warn
-    # - name: Test
-    #   run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/donwload-artifact@v3
-        with:
-          name: artifacts 
-          path: ${{ env.artifactsPath }}
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x 
-      - name: Restore dependencies
-        run: dotnet restore aspnetcoreapp/aspnetcoreapp.csproj
-      - name: Test
-        run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
+    - name: Test
+      run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
