@@ -20,10 +20,11 @@ jobs:
       run: dotnet restore aspnetcoreapp/aspnetcoreapp.csproj
     - name: Build
       run: dotnet build aspnetcoreapp/aspnetcoreapp.csproj --no-restore
-    - uses: actions/upload-artifact@staging
+    - uses: actions/upload-artifact@v3
       with:
         name: webpack artifacts
         path: public/
+        if-no-file-found: warn
     # - name: Test
     #   run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
   test:
