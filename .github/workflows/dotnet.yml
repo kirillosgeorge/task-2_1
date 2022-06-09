@@ -23,7 +23,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: webpack artifacts
-        path: public/
+        path: aspnetcoreapp/aspnetcoreapp.csproj
         if-no-file-found: warn
     # - name: Test
     #   run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
