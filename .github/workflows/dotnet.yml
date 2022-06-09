@@ -22,7 +22,7 @@ jobs:
       run: dotnet build aspnetcoreapp/aspnetcoreapp.csproj --no-restore
     - uses: actions/upload-artifact@v3
       with:
-        name: webpack artifacts
+        name: artifacts
         path: /home/runner/work/task-2_1/task-2_1/aspnetcoreapp/bin/Debug/net6.0/aspnetcoreapp.dll
         #if-no-file-found: warn
     # - name: Test
@@ -35,8 +35,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/donwload-artifact@v3
         with:
-          name: webpack artifacts 
-          path: /home/runner/work/task-2_1/task-2_1/aspnetcoreapp/bin/Debug/net6.0/aspnetcoreapp.dll
+          name: artifacts 
+          path: ${{ env.artifactsPath }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
