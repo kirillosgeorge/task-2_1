@@ -14,22 +14,18 @@ variables:
 
 steps:
 
-- task: UseDotNet@2
+- task: DotNetCoreCLI@2
   inputs:
-    version: '6.0.x'
+    command: 'restore'
+    projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
+    feedsToUse: 'select'
+    includeNuGetOrg: false
 
 - task: DotNetCoreCLI@2
-  displayName: Restore
   inputs:
-    command: restore
-    projects: '**/*.csproj'
-    feedsToUse: config
-    nugetConfigPath: NuGet.config    # Relative to root of the repository
-    externalFeedCredentials: <Name of the NuGet service connection>
-
+    command: 'build'
+    projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
 - task: DotNetCoreCLI@2
-  displayName: Build
   inputs:
-    command: build
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    command: 'test'
+    projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
