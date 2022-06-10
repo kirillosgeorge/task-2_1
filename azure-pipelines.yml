@@ -63,7 +63,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
-    repository: 'webapp'
+    repository: 'webapp:latest'
     command: 'push'
      
 
