@@ -38,8 +38,12 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
 
     - name: Build docker image 
-      run:  sudo docker build -f aspnetcoreapp/Dockerfile -t webapp .
-      
+      run:  sudo docker build -f aspnetcoreapp/Dockerfile -t webapp . 
+    - name: docker images lists
+      run: docker images ls
+    - name: docker tag 
+      run: docker tag ${{ secrets.DOCKER_USERNAME }}/webapp:latest 
+
     - name: Push docker image
       run:   docker push rskirillosgeorge/webapp    
     # - name: Extract metadata (tags,labels) for docker 
