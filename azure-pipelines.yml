@@ -33,18 +33,19 @@ steps:
     command: 'test'
     projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
 
-- task: lambda3docker@0
-  displayName: build image
+- task: Docker@2
+  displayName: Login to Docker Hub
   inputs:
-    command: 'build'
-    imageBuild: 'webapp1'
-    cwd: 'aspnetcoreapp/Dockerfile'
-    
-- task: lambda3docker@0
-  displayName: push image
+    command: login
+    containerRegistry: dockerRegistryServiceConnection2
+
+- task: Docker@2
+  displayName: Build and Push
   inputs:
-    command: 'push'
-    imagePush: 'rskirillosgeorge / webapp1'
-    cwd: 'aspnetcoreapp/Dockerfile'
+    command: buildAndPush
+    repository: rskirillosgeorge/webapp # username/contosoRepository for DockerHub
+    tags: |
+      latest
+      tag2
     
 
