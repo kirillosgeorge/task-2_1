@@ -33,13 +33,12 @@ steps:
     command: 'test'
     projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
 
-- task: Docker@2
-  displayName: 'build and push Docker image'
+- task: Docker@1
+  displayName: 'build Docker image'
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub'
-    repository: 'Docker Hub'
-    command: 'buildAndPush'
+    command: 'Build an image'
     Dockerfile: '**/Dockerfile'
     imageName: '$(ImageName)'
     includeLatestTag: true
