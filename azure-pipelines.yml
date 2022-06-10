@@ -42,7 +42,7 @@ steps:
     docker login
     Username:rskirillosgeorge
     Password:303f522f-9404-48db-a212-51a7f49bac1c
-    docker push webapp:latest
+    
 # - task: Docker@1
 #   displayName: 'build Docker image'
 #   inputs:
@@ -53,12 +53,12 @@ steps:
 #     includeLatestTag: true
 #     useDefaultContext: false
 #     buildContext: '.'
-# # - task: Docker@1
-# #   displayName: 'Push the Docker image to Dockerhub'
-# #   inputs:
-# #     containerregistrytype: 'Container Registry'
-# #     dockerRegistryEndpoint: 'Docker Hub'
-# #     command: Push an image
+- task: Docker@1
+  displayName: 'Push the Docker image to Dockerhub'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'Docker Hub'
+    command: Push an image
 # - task: Docker@2
 #   inputs:
 #     containerRegistry: 'Docker Hub'
