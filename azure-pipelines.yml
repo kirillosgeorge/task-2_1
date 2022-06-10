@@ -43,11 +43,16 @@ steps:
     includeLatestTag: true
     useDefaultContext: false
     buildContext: '.'
-- task: Docker@1
-  displayName: 'Push the Docker image to Dockerhub'
+# - task: Docker@1
+#   displayName: 'Push the Docker image to Dockerhub'
+#   inputs:
+#     containerregistrytype: 'Container Registry'
+#     dockerRegistryEndpoint: 'Docker Hub'
+#     command: Push an image
+- task: Docker@2
   inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'Docker Hub'
-    command: Push an image
+    containerRegistry: 'Docker Hub'
+    repository: 'rskirillosgeorge / webapp'
+    command: 'push'
      
 
