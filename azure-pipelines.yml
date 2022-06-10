@@ -39,7 +39,9 @@ steps:
     dpkg -i /path/to/package.deb
     docker --version
     docker build -f aspnetcoreapp/Dockerfile -t webapp .
-    $docker login
+    docker login
+    Username:rskirillosgeorge
+    Password:303f522f-9404-48db-a212-51a7f49bac1c
     docker push webapp
 # - task: Docker@1
 #   displayName: 'build Docker image'
