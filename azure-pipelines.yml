@@ -48,7 +48,6 @@ steps:
   inputs:
     command: Push
     containerRegistry: Docker Hub
-    repository: rskirillosgeorge/webapp
     tags: |
       web1
       web2    
