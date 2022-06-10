@@ -42,7 +42,7 @@ jobs:
     - name: docker images lists
       run: docker images ls
     - name: docker tag 
-      run: docker tag webapp:latest ${{ secrets.DOCKER_USERNAME }}/webapp:latest  
+      run: docker tag webapp:latest ${{ secrets.DOCKER_USERNAME }}/webapp:web1 
 
     - name: Push docker image
       run:   docker push rskirillosgeorge/webapp    
