@@ -40,7 +40,6 @@ steps:
     dockerRegistryEndpoint: 'Docker Hub'
     command: 'Build an image'
     Dockerfile: '**/Dockerfile'
-    imageName: '$(ImageName)'
     includeLatestTag: true
     useDefaultContext: false
     buildContext: '.'
