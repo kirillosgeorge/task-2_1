@@ -33,26 +33,29 @@ steps:
     command: 'test'
     projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
 
-- task: Docker@1
-  displayName: 'build Docker image'
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'Docker Hub'
-    command: 'Build an image'
-    Dockerfile: '**/Dockerfile'
-    includeLatestTag: true
-    useDefaultContext: false
-    buildContext: '.'
+- bash: |
+    which bash 
+    echo Hello $name
 # - task: Docker@1
-#   displayName: 'Push the Docker image to Dockerhub'
+#   displayName: 'build Docker image'
 #   inputs:
 #     containerregistrytype: 'Container Registry'
 #     dockerRegistryEndpoint: 'Docker Hub'
-#     command: Push an image
-- task: Docker@2
-  inputs:
-    containerRegistry: 'Docker Hub'
-    repository: 'rskirillosgeorge / webapp'
-    command: 'push'
+#     command: 'Build an image'
+#     Dockerfile: '**/Dockerfile'
+#     includeLatestTag: true
+#     useDefaultContext: false
+#     buildContext: '.'
+# # - task: Docker@1
+# #   displayName: 'Push the Docker image to Dockerhub'
+# #   inputs:
+# #     containerregistrytype: 'Container Registry'
+# #     dockerRegistryEndpoint: 'Docker Hub'
+# #     command: Push an image
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'Docker Hub'
+#     repository: 'rskirillosgeorge / webapp'
+#     command: 'push'
      
 
