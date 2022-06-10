@@ -45,7 +45,7 @@ jobs:
       run: docker tag webapp:latest ${{ secrets.DOCKER_USERNAME }}/webapp:web1 
 
     - name: Push docker image
-      run:   docker push rskirillosgeorge/webapp    
+      run:   docker push rskirillosgeorge/webapp:web1   
     # - name: Extract metadata (tags,labels) for docker 
     #   id: meta 
     #   uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
