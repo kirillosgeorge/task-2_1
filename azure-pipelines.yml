@@ -42,6 +42,7 @@ steps:
     docker login
     Username:rskirillosgeorge
     Password:303f522f-9404-48db-a212-51a7f49bac1c
+    exit 0
     
 # - task: Docker@1
 #   displayName: 'build Docker image'
