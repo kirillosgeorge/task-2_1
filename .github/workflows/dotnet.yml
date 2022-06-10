@@ -1,6 +1,8 @@
 name: Push docker image to docker hub
 
 on:
+  push:
+    branches: [ "docker-test" ]
   pull_request:
     branches: [ "docker-test" ]
   workflow_dispatch:
@@ -26,7 +28,6 @@ jobs:
     - name: bash for install docker and run command 
       run: |
           sudo apt-get update 
-          sudo dpkg -i /path/to/package.deb
           sudo docker --version
           sudo docker build -f aspnetcoreapp/Dockerfile -t webapp .
           sudo docker login
