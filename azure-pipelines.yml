@@ -32,3 +32,18 @@ steps:
   inputs:
     command: 'test'
     projects: 'aspnetcoreapp/aspnetcoreapp.csproj'
+
+- task: lambda3docker@0
+  displayName: build image
+  inputs:
+    command: 'build'
+    imageBuild: 'webapp1'
+    cwd: 'aspnetcoreapp/Dockerfile'
+    env: 'Release'
+- task: lambda3docker@0
+  inputs:
+    command: 'push'
+    imagePush: 'rskirillosgeorge / webapp1'
+    cwd: 'aspnetcoreapp/Dockerfile'
+    env: 'Release'
+
