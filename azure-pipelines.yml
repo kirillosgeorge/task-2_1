@@ -39,11 +39,12 @@ steps:
     command: 'build'
     imageBuild: 'webapp1'
     cwd: 'aspnetcoreapp/Dockerfile'
-    env: 'Release'
+    
 - task: lambda3docker@0
+  displayName: push image
   inputs:
     command: 'push'
     imagePush: 'rskirillosgeorge / webapp1'
     cwd: 'aspnetcoreapp/Dockerfile'
-    env: 'Release'
+    
 
