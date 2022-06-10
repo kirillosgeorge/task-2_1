@@ -35,7 +35,9 @@ steps:
 
 - bash: |
     which bash 
-    echo Hello $name
+    apt-get update
+    dpkg -i /path/to/package.deb
+    docker --version
 # - task: Docker@1
 #   displayName: 'build Docker image'
 #   inputs:
