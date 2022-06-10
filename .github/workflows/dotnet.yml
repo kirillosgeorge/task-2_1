@@ -2,9 +2,9 @@ name: Push docker image to docker hub
 
 on:
   push:
-    branches: [ "docker-test" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "docker-test" ]
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
