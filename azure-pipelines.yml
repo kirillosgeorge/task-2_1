@@ -49,6 +49,5 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker Hub'
     command: Push an image
-    imageName: '$(ImageName)'
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))  
+     
 
