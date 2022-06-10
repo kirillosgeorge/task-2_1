@@ -43,7 +43,15 @@ steps:
     Username:rskirillosgeorge
     Password:303f522f-9404-48db-a212-51a7f49bac1c
     exit 0
-    
+- task: Docker@2
+  displayName: Build and Push
+  inputs:
+    command: buildAndPush
+    containerRegistry: Docker Hub
+    repository: rskirillosgeorge/webapp
+    tags: |
+      web1
+      web2    
 # - task: Docker@1
 #   displayName: 'build Docker image'
 #   inputs:
@@ -60,10 +68,10 @@ steps:
 #     containerregistrytype: 'Container Registry'
 #     dockerRegistryEndpoint: 'Docker Hub'
 #     command: Push an image
-- task: Docker@2
-  inputs:
-    containerRegistry: 'Docker Hub'
-    repository: 'webapp:latest'
-    command: 'push'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'Docker Hub'
+#     repository: 'webapp:latest'
+#     command: 'push'
      
 
