@@ -1,8 +1,10 @@
-name: .NET
+name: Push docker image to docker hub
 
 on:
+  push:
+    branches: [ "master" ]
   pull_request:
-    branches: [ "staging" ]
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
@@ -22,3 +24,38 @@ jobs:
       run: dotnet build aspnetcoreapp/aspnetcoreapp.csproj --no-restore
     - name: Test
       run: dotnet test aspnetcoreapp/aspnetcoreapp.csproj --no-build --verbosity normal
+  
+    - name: bash for install docker and run command 
+      run: |
+          sudo apt-get update 
+    - name: docker version 
+      run:  sudo docker --version    
+      
+    - name: login to docker hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+
+    - name: Build docker image 
+      run:  sudo docker build -f aspnetcoreapp/Dockerfile -t webapp . 
+    - name: docker images lists
+      run: docker images ls
+    - name: docker tag 
+      run: docker tag webapp:latest ${{ secrets.DOCKER_USERNAME }}/webapp:web1 
+
+    - name: Push docker image
+      run:   docker push rskirillosgeorge/webapp:web1   
+    # - name: Extract metadata (tags,labels) for docker 
+    #   id: meta 
+    #   uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+    #   with:
+    #     images: rskirillosgeorge/webapp
+      
+    # - name: Build and push Docker image 
+    #   uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+    #   with:
+    #     context: . 
+    #     push: true
+    #     tags: ${{ steps.meta.outputs.tags }}
+    #     labels: ${{ steps.meta.outputs.labels }}
