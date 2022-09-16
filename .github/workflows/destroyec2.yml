@@ -39,5 +39,5 @@ jobs:
           cd tf-example/
           terraform init
           terraform validate
-          terraform plan -out tfdestroyplan -destroy 
+          terraform plan -destroy -out tfdestroyplan  
           terraform destroy 
