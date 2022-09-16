@@ -11,7 +11,7 @@ on:
 
 jobs: 
 
-  provision-ec2:
+  destroy-ec2:
     runs-on: ubuntu-latest
 
     steps:
