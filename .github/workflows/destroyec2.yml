@@ -40,4 +40,4 @@ jobs:
           terraform init
           terraform validate
           terraform plan -out tfdestroyplan -destroy 
-          terraform apply tfdestroyplan -auto-approve
+          terraform destroy 
